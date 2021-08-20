@@ -6,11 +6,11 @@ import com.tahayavuz.model.Customer;
 
 public interface CustomerDAO {
 
-	public List<Customer> getAllUsers();
+	public List<Customer> getAllCustomers();
 
-	public void delete(int userId);
+	public void deleteCustomer(int customerId);
 
-	public void save(Customer aUser);
+	public void saveCustomer(Customer aCustomer);
 	
     public Customer getCustomer(int theId);
 }

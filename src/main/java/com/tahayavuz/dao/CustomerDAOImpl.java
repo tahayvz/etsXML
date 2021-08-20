@@ -18,24 +18,24 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public List<Customer> getAllUsers() {
-		TypedQuery<Customer> query = entityManager.createQuery("SELECT c FROM Customer c ORDER BY c.id", Customer.class);
+	public List<Customer> getAllCustomers() {
+		TypedQuery<Customer> query = entityManager.createQuery("SELECT c FROM Customer c ORDER BY c.id",
+				Customer.class);
 		return query.getResultList();
 	}
 
-	public void delete(int userId) {
-		Customer user = entityManager.getReference(Customer.class, userId);
-		entityManager.remove(user);
+	public void deleteCustomer(int customerId) {
+		Customer customer = entityManager.getReference(Customer.class, customerId);
+		entityManager.remove(customer);
 	}
 
-	public void save(Customer aUser) {
-		entityManager.merge(aUser);
+	public void saveCustomer(Customer aCustomer) {
+		entityManager.merge(aCustomer);
 	}
-	
-    public Customer getCustomer(int theId) {
-		Customer user = entityManager.createQuery(
-				  "SELECT c FROM Customer c WHERE c.id = :id", Customer.class).
-				  setParameter("id", theId).getSingleResult();
-        return user;
-    }
+
+	public Customer getCustomer(int theId) {
+		Customer customer = entityManager.createQuery("SELECT c FROM Customer c WHERE c.id = :id", Customer.class)
+				.setParameter("id", theId).getSingleResult();
+		return customer;
+	}
 }

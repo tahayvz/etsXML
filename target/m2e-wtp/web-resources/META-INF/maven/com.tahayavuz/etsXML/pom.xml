@@ -77,6 +77,6 @@
 		</dependency>      
 	</dependencies>
     <build>
-    	<finalName>userManager</finalName>
+    	<finalName>etsXML</finalName>
     </build>
 </project>
