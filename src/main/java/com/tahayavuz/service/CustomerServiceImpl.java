@@ -1,0 +1,34 @@
+package com.tahayavuz.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tahayavuz.dao.CustomerDAO;
+import com.tahayavuz.model.Customer;
+
+
+@Service
+public class CustomerServiceImpl implements CustomerService {
+	
+	@Autowired
+    private CustomerDAO customerDAO;
+	
+	public List<Customer> getAllCustomers() {
+		return customerDAO.getAllUsers();
+	}
+	
+	public void saveCustomer(Customer aUser) {
+		customerDAO.save(aUser);
+	}
+	
+	public void deleteCustomer(int userId) {
+		customerDAO.delete(userId);
+	}
+
+    public Customer getCustomer(int theId) {
+        return customerDAO.getCustomer(theId);
+    }
+
+}
